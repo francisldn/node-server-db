@@ -4,13 +4,15 @@ Welcome to the world of databases! This project is divided in four steps, the fi
 
 If you’re working on a Mac, to install the various databases use [Homebrew](http://brew.sh/).
 
+Finally, connecting to databases from Node apps is just a matter of installing the appropriate driver from [npm](https://www.npmjs.org/).
+
 ### SQL
 
 For starters complete these two tutorials on SQL: [part one](http://www.sqlcourse.com/) (chapters 2-8), and [part two](http://www.sqlcourse.com/) (chapters 2-10).
 
-Now copy all the files you had in the `/server/koa` folder of the `chat-server` repo into the `/server/sql` folder of this repo.
+Then install on your computer a SQL database of your choice (e.g. [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), or [SQLite](https://www.sqlite.org/), and through the CLI set up your schema as needed.
 
-Finally replace the JSON data-store with a SQL database of your choice (e.g. [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), or [SQLite](https://www.sqlite.org/)).
+Now copy all the files you had in the `/server/koa` folder of the `chat-server` repo into the `/server/sql` folder of this repo, and replace the JSON data-store with your SQL database.
 
 ### ORM
 
