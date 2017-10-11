@@ -16,7 +16,7 @@ Now copy all the files you had in the `/server/koa` folder of the `chat-server` 
 
 ### ORM
 
-SQL syntax and direct database string output are not the most friendly to work with… that’s why ORMs were born! Take a look at this [Sequelize example](http://docs.sequelizejs.com/en/1.7.0/articles/express/), and make sure you can fully understand it before moving forward (if you get stuck ask for help).
+SQL syntax and direct database string output are not the most friendly to work with… that’s why ORMs were born! Take a look at this [Sequelize example](https://sequelize.readthedocs.io/en/1.7.0/articles/express/), and make sure you can fully understand it before moving forward (if you get stuck ask for help).
 
 Now copy all the files you have in the `/server/sql` to the `/server/orm` folder, and refactor your code to switch from bare SQL to Sequelize.
 
