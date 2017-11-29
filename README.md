@@ -8,7 +8,7 @@ Finally, connecting to databases from Node apps is just a matter of installing t
 
 ### SQL
 
-For starters complete these two tutorials on SQL: [part one](http://www.sqlcourse.com/) (chapters 2-8), and [part two](http://www.sqlcourse.com/) (chapters 2-10).
+For starters complete these two tutorials on SQL: [part one](http://www.sqlcourse.com/) (chapters 2-8), and [part two](http://www.sqlcourse2.com/) (chapters 2-10).
 
 Then install on your computer a SQL database of your choice (e.g. [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), or [SQLite](https://www.sqlite.org/), and through the CLI set up your schema as needed.
 
