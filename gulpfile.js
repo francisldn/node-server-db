@@ -4,13 +4,12 @@ const fs = require('fs');
 const del = require('del');
 const $ = require('gulp-load-plugins')();
 
-// Utility to ignore Node modules and Bower components
+// Utility to ignore unnecessary files
 // when generating the glob patterns array for gulp.src()
 function addDefSrcIgnore (srcArr) {
   return srcArr.concat([
     '!**/REMOVE{,/**}',
     '!node_modules{,/**}',
-    '!client/bower_components{,/**}',
     '!private{,/**}',
     '!dist{,/**}',
     '!.git{,/**}',
@@ -19,7 +18,7 @@ function addDefSrcIgnore (srcArr) {
 }
 
 // Lint all files
-gulp.task('lint', ['lint-js', 'lint-html', 'lint-css']);
+gulp.task('lint', ['lint-js', 'lint-html']);
 
 // JavaScript and JSON linter
 gulp.task('lint-js', function () {
@@ -35,17 +34,6 @@ gulp.task('lint-html', function () {
     .pipe($.htmlLint({htmllintrc: '.htmllintrc.json'}))
     .pipe($.htmlLint.format())
     .pipe($.htmlLint.failAfterError());
-});
-
-// CSS linter
-gulp.task('lint-css', function () {
-  return gulp.src(addDefSrcIgnore(['**/*.css']))
-    .pipe($.stylelint({
-      failAfterError: true,
-      reporters: [
-        {formatter: 'string', console: true}
-      ]
-    }));
 });
 
 // Remove solutions from exercises
@@ -68,7 +56,7 @@ gulp.task('dist', ['remove-solutions'], function () {
   const npmConfig = require('./package.json');
   npmConfig.name = removeMaster(npmConfig.name);
   npmConfig.repository.url = removeMaster(npmConfig.repository.url);
-  npmConfig.config.ghooks['pre-commit'] = 'gulp lint';
+  npmConfig.scripts['precommit'] = 'gulp lint';
   fs.writeFileSync('dist/package.json', JSON.stringify(npmConfig, null, 2));
 
   const esLintConfig = require('./.eslintrc.json');
