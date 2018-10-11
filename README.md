@@ -1,4 +1,4 @@
-# Chat server redux
+# Chat server DB
 
 Welcome to the world of databases! This project is divided in four steps, the first two should take one day each, and the remaining two can be done in the last day. For each section use the respective folder in the `/server` directory, and save the required dependencies in the global `package.json`.
 
