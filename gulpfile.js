@@ -17,51 +17,49 @@ function addDefSrcIgnore (srcArr) {
   ]);
 }
 
-// Lint all files
-gulp.task('lint', ['lint-js', 'lint-html']);
-
 // JavaScript and JSON linter
-gulp.task('lint-js', function () {
+function lintJs () {
   return gulp.src(addDefSrcIgnore(['**/*.js', '**/*.json']), {dot: true})
     .pipe($.eslint({dotfiles: true}))
     .pipe($.eslint.format())
     .pipe($.eslint.failAfterError());
-});
+}
 
 // HTML linter
-gulp.task('lint-html', function () {
+function lintHtml () {
   return gulp.src(addDefSrcIgnore(['**/*.html']))
-    .pipe($.htmlLint({htmllintrc: '.htmllintrc.json'}))
-    .pipe($.htmlLint.format())
-    .pipe($.htmlLint.failAfterError());
-});
+    .pipe($.htmllint({config: '.htmllintrc.json', failOnError: true}));
+}
 
 // Remove solutions from exercises
-gulp.task('remove-solutions', function () {
+function removeSolutions () {
   del.sync('dist');
   return gulp.src(addDefSrcIgnore(['**']), {dot: true})
     .pipe($.replace(/^\s*(\/\/|<!--|\/\*)\s*REMOVE-START[\s\S]*?REMOVE-END\s*(\*\/|-->)?\s*$/gm, ''))
     .pipe(gulp.dest('dist'));
-});
+}
 
 // Prepare for distribution to students
-gulp.task('dist', ['remove-solutions'], function () {
-
-  function removeMaster (str) {
-    var strArr = str.split('-');
-    strArr[strArr.length - 1] === 'master' && strArr.pop();
-    return strArr.join('-');
-  }
-
-  const npmConfig = require('./package.json');
-  npmConfig.name = removeMaster(npmConfig.name);
-  npmConfig.repository.url = removeMaster(npmConfig.repository.url);
-  npmConfig.scripts['precommit'] = 'gulp lint';
-  fs.writeFileSync('dist/package.json', JSON.stringify(npmConfig, null, 2));
-
+function updateConfigForSlave (done) {
+  let npmConfig = require('./package.json');
+  npmConfig = JSON.stringify(npmConfig, null, 2).replace(/-master/g, '');
+  fs.writeFileSync('dist/package.json', npmConfig);
   const esLintConfig = require('./.eslintrc.json');
   esLintConfig.rules['no-undef'] = 'off';
   esLintConfig.rules['no-unused-vars'] = 'off';
   fs.writeFileSync('dist/.eslintrc.json', JSON.stringify(esLintConfig, null, 2));
 
-});
+  done();
+}
+
+// Lint all files
+exports.lint = gulp.parallel(
+  lintJs,
+  lintHtml
+);
+
+// Prepare for distribution to students
+exports.dist = gulp.series(
+  removeSolutions,
+  updateConfigForSlave
+);
