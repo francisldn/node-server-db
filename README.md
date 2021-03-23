@@ -27,7 +27,7 @@ You’re ready to go! Remember to make small, incremental, and descriptive commi
 
 ## 1. SQL
 
-For starters, complete this [Intro to SQL](https://www.khanacademy.org/computing/computer-programming/sql) tutorial (all 4 modules).
+For starters, complete this [SQL tutorial](https://sqlbolt.com/) (all lessons).
 
 Then install on your computer a SQL database of your choice (e.g. [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), or [SQLite](https://www.sqlite.org/)).
 
