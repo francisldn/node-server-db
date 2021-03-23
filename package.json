@@ -1,11 +1,15 @@
 {
   "name": "codeworks-chat-server-db-exercise",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A Codeworks exercise to train students",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "codeworks/chat-server-db-exercise"
+  },
+  "scripts": {
+    "precommit": "gulp lint",
+    "test": "echo \"No test specified\""
   },
   "author": "Codeworks",
   "license": "UNLICENSED",
