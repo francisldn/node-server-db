@@ -57,6 +57,8 @@ Complete this interactive [Redis tutorial](https://try.redis.io/).
 
 Install Redis.
 
+Once you have Redis installed, you can use a package like [ioredis](https://www.npmjs.com/package/ioredis) as a client for Node.js.
+
 Now copy all the files you have in the `/server/sql` to the `/server/redis` folder, and refactor your code to switch from SQL to Redis.
 
 ## Extra credits
