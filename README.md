@@ -37,7 +37,7 @@ Now copy all the files you had in the `/server/koa` folder of the `chat-server` 
 
 ## 2. ORM
 
-Yes, SQL syntax and direct database string outputs are not the most friendly to work with… that’s why ORMs were born! Take a look at this [Sequelize example](https://lectures.codeworks.me/databases-2#orm-example), and make sure you understand its core parts before moving forward.
+Yes, SQL syntax and direct database string outputs are not the most friendly to work with… that’s why ORMs were born! Take a look at this [Sequelize example](https://tools.codeworks.me/#/syllabus/databases-2), and make sure you understand its core parts before moving forward.
 
 Now copy all the files you have in the `/server/sql` to the `/server/orm` folder, and refactor your code to switch from bare SQL to Sequelize.
 
@@ -50,6 +50,8 @@ Install Mongo, then through the CLI list what collections are available. Here yo
 Now copy all the files you have in the `/server/sql` to the `/server/mongo` folder, and refactor your code to switch from SQL to MongoDB.
 
 Once you have finished, check out [Mongoose](http://mongoosejs.com/) and refactor your code once again to use it as ORM.
+
+**Note:** when configuring the connection to MongoDB, it is advised to use the IP version of your local machine's address: `127.0.0.1` instead of `localhost`.
 
 ## 4. Redis
 
