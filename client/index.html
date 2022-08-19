@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatty Web Chat App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-pan-left flex content-center justify-center">
+    <div class="w-5/6 md:max-w-[900px]">
+        <div class="mt-20">
+            <div class="pb-[10px] bg-[rgb(220,248,198)] w-full  max-w-[100%] border-1 rounded-lg text-center border-2 border-black inset">
+                <div class="">
+                    <p class="py-10 font-bold text-2xl md:text-3xl tracking-in-expand tx-shadow transition-all"> Welcome to Chatty Web Chat App</p>
+                    <button class="clear flex text-center w-30 h-8 p-5 rounded-lg items-center mx-auto bg-green-600 mb-5 text-white hover:bg-green-300 hover:text-black font-semibold cursor-pointer border-2 border-black hover:transition-all hover:scale-110">Clear Chat</button>
+                </div>
+            </div>
+            <br/>
+            <div class="chatbox flex flex-col h-[700px] w-full bg-[url('whatsapp.jpeg')] rounded-lg border-2 border-black overflow-y-scroll"></div>
+
+            <form id="msg-form" class="w-full" action="">
+                <div class="mt-5 w-full flex gap-">
+                    <input type="text" id="msg-input" class="flex-1 w-full h-14 mr-4 border-2 border-black rounded-lg inputbox" placeholder="Type your message here... "/>
+                    <input type="submit" id="submit" class="cursor-pointer h-14 w-24  border-2 border-black rounded-xl bg-green-600 text-white hover:bg-green-300 hover:text-black font-semibold hover:transition-all hover:scale-110" value="Send" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="script.js"></script>
+</body>
+
+</html>
