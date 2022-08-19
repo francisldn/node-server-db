@@ -1,21 +1,32 @@
-const {findMessage, saveMessage} = require('../models/model');
+'use strict';
 
+const message = require('../models/model.js');
 
-async function getMessage (ctx) {
+exports.getAll = async ctx => {
   try {
-    ctx.response.body = await findMessage();
-    ctx.response.status = 200;
-  } catch (err) {
-    console.log(err);
-    // further error handling
+    ctx.body = await message.find({});
+  } catch (e) {
+    ctx.status = 500;
+    // Further handle your error on the back-end
+  }
+};
+
+exports.set = async ctx => {
+  try {
+    await message.create(ctx.request.body);
+    ctx.status = 200;
+  } catch (e) {
+    ctx.status = 500;
+    // Further handle your error on the back-end
+  }
+};
+
+exports.deleteAll = async (ctx) => {
+  try {
+    await message.deleteMany({});
+    ctx.status= 200;
+  } catch (e) {
+    console.log(e)
     ctx.status = 500;
   }
-}
-
-async function postMessage (ctx) {
-  const data = ctx.request.body;
-  await saveMessage(data);
-  ctx.response.status= 201; 
-}
-
-module.exports = {getMessage, postMessage};
+};

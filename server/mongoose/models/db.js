@@ -1,10 +1,5 @@
 const mongoose = require('mongoose');
-require('dotenv').config('../.env');
 
-mongoose.connect(process.env.URL, {useNewUrlParser: true});
-const db = mongoose.connection;
+mongoose.connect('mongodb://localhost:27017/chatapp', { useNewUrlParser: true, useUnifiedTopology: true });
 
-db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('Connected to database'));
-
-module.exports = db;
+module.exports = mongoose;

@@ -1,8 +1,8 @@
-const Router = require('@koa/router')
+const Router = require('@koa/router');
 const router = new Router();
-const {getMessage, postMessage} = require('./controllers/controller')
+const {getAll, set, deleteAll} = require('./controllers/controller');
 
-router.get('/messages', getMessage)
-router.post('/messages', postMessage)
-
-module.exports = router
+router.get('/messages', getAll);
+router.post('/messages', set);
+router.del('/messages', deleteAll);
+module.exports = router;

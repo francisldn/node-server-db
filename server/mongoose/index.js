@@ -6,7 +6,6 @@ const router = require('./router');
 const bodyParser = require('koa-bodyparser');
 const morgan = require('koa-morgan');
 const cors = require('@koa/cors');
-const db = require('./models/db')
 
 const clientPath= path.join(__dirname, '../../client');
 const PORT = 3000;
