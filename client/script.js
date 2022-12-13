@@ -55,7 +55,7 @@ $(() => {
   });
   
   function DateTimeFormat (timestamp) {
-    const options = {hour: '2-digit', minute: '2-digit'};
+    const options = {hour: '2-digit', minute: '2-digit', month:'short', weekday:'short', day:'numeric', 'year':'numeric' };
     return new Date(Number(timestamp)).toLocaleDateString('en-US', options);
   }
 
@@ -72,11 +72,11 @@ $(() => {
   function showMessage (msg) {
     const {authorid, content, timestamp} = msg;
     if (authorid === 1) {
-      const $msgElement = $('<div class="p-5 bg-[rgb(204,255,204,0.8)] rounded-2xl max-w-[750px] my-2 mr-2 self-end whitespace-normal border border-3 border-green-800">');
+      const $msgElement = $('<div class="p-5 bg-[rgb(204,255,204,0.8)] rounded-2xl max-w-[750px] my-2 mr-2 self-end whitespace-normal border border-3 border-green-800 mychat hover:font-semibold">');
       $chatBox.append($msgElement.html(`You: ${content} <span class="flex justify-self-end text-xs pt-2">sent ${DateTimeFormat(timestamp).toString()}</span>`));
       // scroll to the bottom of div - https://stackoverflow.com/questions/10503606/scroll-to-bottom-of-div-on-page-load-jquery
     } else if (authorid === 0) {
-      const $botMsg = $('<div class="p-5 bg-[rgb(204,255,255,0.8)] rounded-2xl max-w-[750px] my-2 ml-2 self-start whitespace-normal border border-3 border-blue-800">');
+      const $botMsg = $('<div class="p-5 bg-[rgb(204,255,255,0.8)] rounded-2xl max-w-[750px] my-2 ml-2 self-start whitespace-normal border border-3 border-blue-800 botchat hover:font-semibold">');
       $chatBox.append($botMsg.html(`Bot: ${content} <span class="flex justify-self-end text-xs pt-2">sent ${DateTimeFormat(timestamp).toString()}</span>`));
     }
     scrollToBottom();

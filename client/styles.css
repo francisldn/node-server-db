@@ -18,23 +18,24 @@ body, html {
     background-size: cover;
     background-repeat:repeat;
     background-position:right;
+    background-color: white;
     
 }
 
-.chatbox::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
+/* .chatbox::-webkit-scrollbar {
+    display: none;
+} */
 
 .bg-pan-left {
-	-webkit-animation: bg-pan-left 4s infinite alternate;
-	        animation: bg-pan-left 4s infinite alternate;
+	-webkit-animation: bg-pan-left 2s infinite alternate;
+	        animation: bg-pan-left 2s infinite alternate;
             transition: all;
 }
 
 
 @-webkit-keyframes bg-pan-left {
     0% {
-      background: #5a189a;
+      background: #9a1859;
     }
     100% {
       background: #03045e;
@@ -42,7 +43,7 @@ body, html {
   }
   @keyframes color-change-2x {
     0% {
-      background: #5a189a;
+      background: #9a1859;
     }
     100% {
       background: #03045e;
@@ -85,4 +86,12 @@ body, html {
 
 .inset {
     box-shadow: inset 0 0 14px 8px rgba(0, 0, 0, 0.5);
+}
+
+.mychat {
+    box-shadow: 3px 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.botchat {
+    box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
